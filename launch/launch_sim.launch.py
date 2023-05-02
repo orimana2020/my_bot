@@ -73,6 +73,10 @@ def generate_launch_description():
         spawn_entity,
         diff_drive_spawner,
         joint_broad_spawner,
-        rviz,
+        # rviz,
         # twist_stamper,
     ])
+
+# ros2 run rviz2 rviz2 -d src/my_bot/config/my_bot.rviz --ros-args -p use_sim_time:=true
+# ros2 launch my_bot online_async_launch.py use_sim_time:=true
+# ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped

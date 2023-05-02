@@ -1,5 +1,4 @@
 import os
-
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, LogInfo
 from launch.conditions import UnlessCondition
@@ -12,7 +11,7 @@ from nav2_common.launch import HasNodeParams
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
     params_file = LaunchConfiguration('params_file')
-    default_params_file = os.path.join(get_package_share_directory("my_bot"),
+    default_params_file = os.path.join(get_package_share_directory('my_bot'),
                                        'config', 'mapper_params_online_async.yaml')
 
     declare_use_sim_time_argument = DeclareLaunchArgument(
@@ -57,3 +56,4 @@ def generate_launch_description():
     ld.add_action(start_async_slam_toolbox_node)
 
     return ld
+

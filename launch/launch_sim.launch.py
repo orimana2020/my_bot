@@ -67,7 +67,7 @@ def generate_launch_description():
             parameters=[twist_mux_params],
             remappings=[('/cmd_vel_out','/diff_cont/cmd_vel_unstamped')]
         )
-    delayed_rviz2 = TimerAction(period=5.0, actions=[rviz2])
+    delayed_rviz2 = TimerAction(period=7.0, actions=[rviz2])
 
     # Launch them all!
     return LaunchDescription([
@@ -83,10 +83,16 @@ def generate_launch_description():
 # Run the following:
 
 # ros2 launch my_bot launch_sim.launch.py 
-# ros2 launch my_bot online_async_launch.py use_sim_time:=true
-# ros2 launch nav2_bringup navigation_launch.py use_sim_time:=true
+# ros2 launch my_bot online_async_launch.py use_sim_time:=true     
+# ros2 launch nav2_bringup localization_launch.py map:=./my_map_save.yaml use_sim_time:=true 
+# ros2 launch nav2_bringup navigation_launch.py use_sim_time:=true map_subscribe_transient_local:=true
+# ros2 run my_command my_commander
 # ros2 run teleop_twist_keyboard teleop_twist_keyboard 
 # --------------------------------------------------------
+
+# mapping 
+
+
 
 # no need to launch
 # ros2 run rviz2 rviz2 -d src/my_bot/config/my_bot.rviz --ros-args -p use_sim_time:=true
